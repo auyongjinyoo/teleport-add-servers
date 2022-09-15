@@ -80,5 +80,12 @@ sudo systemctl enable –now teleport
 *Note: 
 - You may encounter not able to establish the connection during the startup, you need to ensure the auth server is accessible.
 - You may also encounter when click connect on the UI, show error not able dial or connect <ip>:3022. You will need add this port in your firewall rules.
+- You may encounter error when dial go thru load balancer when the node don't have public access. In this case you will need add the advertise_ip at the teleport.yaml configuration file. Under section teleport, just right below the diag_addr.
+  
+  ```yml
+  diag_addr: ""
+  advertise_ip: <your-public-access-ip>
+```
+  
 
 
